@@ -1,0 +1,5 @@
+[ 2023-09-30 08:14:27,175 ] 10 root - INFO - Entered the data ingestion method or component
+[ 2023-09-30 08:14:27,175 ] 29 root - INFO - Dropping of constant columns initiated
+[ 2023-09-30 08:14:27,222 ] 18 root - INFO - train_test split has begun
+[ 2023-09-30 08:14:46,099 ] 22 root - INFO - Model fitting initiated
+[ 2023-09-30 08:14:46,099 ] 26 root - INFO - Model pickle file saved

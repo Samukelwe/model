@@ -1,0 +1,4 @@
+[ 2023-09-02 07:35:52,520 ] 9 root - INFO - Entered the data ingestion method or component
+[ 2023-09-02 07:35:52,527 ] 45 root - INFO - Feature Engineering started
+[ 2023-09-02 07:35:52,547 ] 29 root - INFO - Dropping of constant columns initiated
+[ 2023-09-02 07:35:52,590 ] 15 root - INFO - Train test split initiated

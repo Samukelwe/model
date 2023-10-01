@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Turbofan Predictions</title>
+    <style>
+        body {
+            background-image: primary.jpg");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            ;
+            height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: bold;
+            color: #FF0000;
+            text-transform: uppercase;
+        }
+
+        .heading {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .mb-3 {
+            font-weight: bold;
+            color: #FF0000;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .prediction {
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-top: 20px;
+            font-weight: bold;
+            color: #FF0000;
+            text-transform: uppercase;
+        }
+
+        .prediction p {
+            margin: 0;
+            font-weight: bold;
+            color: #FF0000;
+            text-transform: uppercase;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>Turbofan Predictions</h1>
+    <div class="row">
+        <form action="/predict" method="post">
+            <div class="mb-3">
+            <label for="unit_number">Unit Number:</label>
+            <input type="number" id="unit_number" name="unit_number" required><br><br>
+
+            <label for="time_cycles">Time Cycles:</label>
+            <input type="number" id="time_cycles" name="time_cycles" required><br><br>
+
+            {% for column in columns %}
+                {% if column not in ['unit_number', 'time_cycles'] %}
+                    <label for="{{ column }}">{{ column }}:</label>
+                    <input type="number" id="{{ column }}" name="{{ column }}" required><br><br>
+                {% endif %}
+            {% endfor %}
+            </div>
+            
+            <div class="btn">
+                <input class="btn btn-primary" type="submit" value="Predict Remaining Useful Life (RUL)" required>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

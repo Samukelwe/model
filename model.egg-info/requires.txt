@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+SVR
+flask
+ipython>=7.23.1
+matplotlib-inline>=0.1
+nest-asyncio
+packaging
+xgboost

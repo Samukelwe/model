@@ -1,0 +1,4 @@
+[ 2023-09-22 02:47:46,217 ] 9 root - INFO - Entered the data ingestion method or component
+[ 2023-09-22 02:47:46,231 ] 29 root - INFO - Dropping of constant columns initiated
+[ 2023-09-22 02:47:46,274 ] 9 root - INFO - Scaling using Minimax scaler
+[ 2023-09-22 02:47:46,292 ] 18 root - INFO - train_test split has begun

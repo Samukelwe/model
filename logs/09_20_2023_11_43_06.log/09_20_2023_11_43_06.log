@@ -1,0 +1,6 @@
+[ 2023-09-20 11:43:11,171 ] 9 root - INFO - Entered the data ingestion method or component
+[ 2023-09-20 11:43:11,188 ] 45 root - INFO - Feature Engineering started
+[ 2023-09-20 11:43:11,222 ] 29 root - INFO - Dropping of constant columns initiated
+[ 2023-09-20 11:43:11,271 ] 16 root - INFO - Train test split initiated
+[ 2023-09-20 11:43:11,271 ] 19 root - INFO - Model fitting
+[ 2023-09-20 11:43:34,432 ] 23 root - INFO - making and saving our pickle file

@@ -1,0 +1,6 @@
+[ 2023-09-30 04:10:00,960 ] 9 root - INFO - Entered the data ingestion method or component
+[ 2023-09-30 04:10:00,969 ] 29 root - INFO - Dropping of constant columns initiated
+[ 2023-09-30 04:10:00,985 ] 9 root - INFO - Scaling using Minimax scaler
+[ 2023-09-30 04:10:01,001 ] 18 root - INFO - train_test split has begun
+[ 2023-09-30 04:10:22,077 ] 18 root - INFO - Model fitting initiated
+[ 2023-09-30 04:10:22,077 ] 21 root - INFO - model pickle file saved

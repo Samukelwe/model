@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUL Estimator</title>
+    <style>
+        body {
+            background-image: primary.jpg");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            ;
+            height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: bold;
+            color: #FF0000;
+            text-transform: uppercase;
+        }
+
+        .heading {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .mb-3 {
+            font-weight: bold;
+            color: #FF0000;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .prediction {
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-top: 20px;
+            font-weight: bold;
+            color: #FF0000;
+            text-transform: uppercase;
+        }
+
+        .prediction p {
+            margin: 0;
+            font-weight: bold;
+            color: #FF0000;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="heading">Turbine Solutions</h1>
+        <h3 class="title">Remaining Useful Life Engine Estimator</h3>
+    </header>
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+            <form action="/predict" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Engine Number</label>
+                    <input class="form-control" type="text" name="unit_number" 
+					placeholder="Enter Engine Number from 1 to 100" required/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Current Cycle Number</label>
+                    <input class="form-control" type="text" name="time_cycles"
+					placeholder="Enter a value of Current operating Cycle" required/>
+                </div>
+                <div class="mb-3">
+					<label class="form-label">Setting 1</label>
+					<input class="form-control" type="text" name="setting_1" placeholder="Enter a value of the first setting "
+						required />
+				</div>   
+				<div class="mb-3">
+					<label class="form-label">Setting 2</label>
+					<input class="form-control" type="text" name="setting_2" placeholder="Enter a value of the Second setting "
+						required />
+				</div>       
+				<div class="mb-3">
+					<label class="form-label">Total temperature at LPC outlet(°R )</label>
+					<input class="form-control" type="text" name="(LPC outlet temperature) (◦R)'"
+						placeholder="Enter a value of Total temperature at LPC outlet in '°R' " />
+				</div>
+	
+				<div class="mb-3">
+					<label class="form-label">Total temperature at HPC outlet(°R )</label>
+					<input class="form-control" type="text" name="(HPC outlet temperature) (◦R)" placeholder="Enter a value of Total temperature at HPC outlet in '°R' "
+						required />
+				</div>
+		
+				<div class="mb-3">
+					<label class="form-label">Total temperature at LPT outlet(°R )</label>
+					<input class="form-control" type="text" name="(LPT outlet temperature) (◦R)"
+						placeholder="Enter a value of Total temperature at LPT outlet in °R  " required />
+				</div>
+	
+				<div class="mb-3">
+					<label class="form-label">Total bypass-duct pressure (psia)</label>
+					<input class="form-control" type="text" name="(bypass-duct pressure) (psia)" placeholder="Enter a value of Total pressure at HPC outlet in 'psia'"
+						required />
+				</div>
+		
+				<div class="mb-3">
+					<label class="form-label">Total (HPC outlet pressure) (psia)'</label>
+					<input class="form-control" type="text" name="(HPC outlet pressure) (psia)" placeholder="Enter a value of Total pressure at HPC outlet in 'psia'"
+						required />
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Physical fan speed(rpm)</label>
+					<input class="form-control" type="text" name="(Physical fan speed) (rpm)" placeholder="Enter a value of Physical fan speed in 'rpm'"
+						required />
+				</div>
+	
+            
+				<div class="mb-3">
+					<label class="form-label">Physical core speed (rpm)</label>
+					<input class="form-control" type="text" name="(Physical core speed) (rpm)"
+						placeholder="Enter a value of Physical core speed in rpm" required />
+				</div>
+	
+				<div class="mb-3">
+					<label class="form-label">Static pressure at HPC outlet (psia)</label>
+					<input class="form-control" type="text" name="(HPC outlet Static pressure)(psia)"
+						placeholder="Enter a value of Static pressure at HPC outlet  in 'psia' " required />
+				</div>
+				
+				<div class="mb-3">
+
+					<label class="form-label">Ratio of fuel flow to Ps30 (pps/psi)</label>
+					<input class="form-control" type="text" name="(Ratio of fuel flow to Ps30) (pps/psia)"
+						placeholder="Enter a value of Ratio of fuel flow to Ps30 in 'pps/psi' " required />
+				</div>
+	
+				<div class="mb-3">
+					<label class="form-label">Corrected fan speed (rpm)</label>
+					<input class="form-control" type="text" name="(Corrected fan speed) (rpm)"
+						placeholder="Enter a value of Corrected fan speed  in rpm " required />
+				
+				</div>
+	
+				<div class="mb-3">
+					<label class="form-label">Corrected core speed(rpm)</label>
+					<input class="form-control" type="text" name="(Corrected core speed) (rpm)"
+						placeholder="Enter a value of Corrected core speed in rpm " required />
+	
+				</div>
+	
+				<div class="mb-3">
+					<label class="form-label">Bypass Ratio </label>
+					<input class="form-control" type="text" name="(Bypass Ratio)"
+						placeholder="Enter a value of Bypass Ratio  " required />
+					
+				</div>
+	
+				<div class="mb-3">
+					<label class="form-label">Bleed Enthalpy </label>
+					<input class="form-control" type="text" name="(Bleed Enthalpy)"
+						placeholder="Enter a value of Bleed Enthalpy " required />
+				</div>
+	
+				<div class="mb-3">
+					<label class="form-label">HPT coolant bleed(lbm/s )</label>
+					<input class="form-control" type="text" name="(High-pressure turbines Cool air flow)"
+						placeholder="Enter a value of HPT coolant bleed lbm/s " required />
+				</div>
+	
+				<div class="mb-3">
+					<label class="form-label">LPT coolant bleed (lbm/s) </label>
+					<input class="form-control" type="text" name="(Low-pressure turbines Cool air flow)"
+						placeholder="Enter a value of LPT coolant bleed  in lbm/s " required />
+	
+				</div>
+        
+
+                <div class="btn">
+                    <input class="btn btn-primary" type="submit" value="Predict Remaining Useful Life (RUL)" required>
+                </div>
+            </form>
+            <div class="prediction">
+                <p>{{ prediction_text }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
